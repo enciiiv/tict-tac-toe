@@ -8,19 +8,18 @@ let inGame = true;
 
 boxes.forEach((b) => {
   b.addEventListener("click", () => {
-    if (b.innerHTML === "") {
-      if (onMoveStatus === "player1") {
-        b.innerHTML = boxX;
-        onMoveStatus = "player2";
-      } else {
-        b.innerHTML = boxO;
-        onMoveStatus = "player1";
-      }
-    }
-
     if (inGame === false) {
       boxes.forEach((b) => (b.disabled = true));
     } else {
+      if (b.innerHTML === "") {
+        if (onMoveStatus === "player1") {
+          b.innerHTML = boxX;
+          onMoveStatus = "player2";
+        } else {
+          b.innerHTML = boxO;
+          onMoveStatus = "player1";
+        }
+      }
       if (
         (boxes[0].innerHTML === boxX &&
           boxes[1].innerHTML === boxX &&
